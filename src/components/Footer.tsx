@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Instagram, Facebook } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/duopro-logo.png";
 
 const serviceAreas = "Amawalk, Ardsley, Ardsley on Hudson, Armonk, Bedford, Bedford Hills, Briarcliff Manor, Bronxville, Chappaqua, Cortlandt Manor, Cross River, Croton on Hudson, Dobbs Ferry, Eastchester, Elmsford, Goldens Bridge, Harrison, Hartsdale, Hastings on Hudson, Irvington, Katonah, Larchmont, Mamaroneck, Millwood, Mount Kisco, North Salem, Pleasantville, Pound Ridge, Purchase, Rye, Rye Brook, Scarsdale, Sleepy Hollow, Somers, South Salem, Tarrytown, Thornwood, Waccabuc, West Harrison, White Plains, and Yorktown Heights.";
@@ -27,7 +28,7 @@ const Footer = () => {
           <div className="space-y-3 text-sm">
             <a href="#hero" className="block hover:text-primary transition-colors">Home</a>
             <a href="#services" className="block hover:text-primary transition-colors">Services</a>
-            <a href="/service-areas" className="block hover:text-primary transition-colors">Service Areas</a>
+            <Link to="/service-areas" className="block hover:text-primary transition-colors">Service Areas</Link>
             <a href="#contact" className="block hover:text-primary transition-colors">Contact</a>
           </div>
         </div>

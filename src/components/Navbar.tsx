@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import logo from "@/assets/duopro-logo.png";
 
 const Navbar = () => {
@@ -14,11 +15,11 @@ const Navbar = () => {
   }, []);
 
   const links = [
-    { label: "Home", href: "/#hero" },
-    { label: "Services", href: "/#services" },
-    { label: "Gallery", href: "/gallery" },
-    { label: "Service Areas", href: "/service-areas" },
-    { label: "Contact", href: "/#contact" },
+    { label: "Home", href: "/#hero", isAnchor: true },
+    { label: "Services", href: "/#services", isAnchor: true },
+    { label: "Gallery", href: "/gallery", isAnchor: false },
+    { label: "Service Areas", href: "/service-areas", isAnchor: false },
+    { label: "Contact", href: "/#contact", isAnchor: true },
   ];
 
   return (
@@ -30,13 +31,23 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              className={`text-sm font-medium transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full ${scrolled ? "text-foreground/80 hover:text-foreground" : "text-primary-foreground/80 hover:text-primary-foreground"}`}
-            >
-              {l.label}
-            </a>
+            l.isAnchor ? (
+              <a
+                key={l.label}
+                href={l.href}
+                className={`text-sm font-medium transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full ${scrolled ? "text-foreground/80 hover:text-foreground" : "text-primary-foreground/80 hover:text-primary-foreground"}`}
+              >
+                {l.label}
+              </a>
+            ) : (
+              <Link
+                key={l.label}
+                to={l.href}
+                className={`text-sm font-medium transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full ${scrolled ? "text-foreground/80 hover:text-foreground" : "text-primary-foreground/80 hover:text-primary-foreground"}`}
+              >
+                {l.label}
+              </Link>
+            )
           ))}
         </div>
 
@@ -65,14 +76,25 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="md:hidden bg-secondary border-t border-primary-foreground/10 px-6 py-4 space-y-3">
           {links.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              className="block text-sm font-medium text-secondary-foreground/80 hover:text-secondary-foreground"
-              onClick={() => setMobileOpen(false)}
-            >
-              {l.label}
-            </a>
+            l.isAnchor ? (
+              <a
+                key={l.label}
+                href={l.href}
+                className="block text-sm font-medium text-secondary-foreground/80 hover:text-secondary-foreground"
+                onClick={() => setMobileOpen(false)}
+              >
+                {l.label}
+              </a>
+            ) : (
+              <Link
+                key={l.label}
+                to={l.href}
+                className="block text-sm font-medium text-secondary-foreground/80 hover:text-secondary-foreground"
+                onClick={() => setMobileOpen(false)}
+              >
+                {l.label}
+              </Link>
+            )
           ))}
           <a href="tel:9143084290">
             <Button size="sm" className="w-full bg-primary text-primary-foreground gap-2 mt-2 font-semibold">
