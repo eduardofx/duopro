@@ -16,10 +16,8 @@ const Navbar = () => {
 
   const links = [
     { label: "Home", href: "/#hero", isAnchor: true },
-    { label: "Services", href: "/#services", isAnchor: true },
     { label: "Gallery", href: "/gallery", isAnchor: false },
     { label: "Service Areas", href: "/service-areas", isAnchor: false },
-    { label: "Contact", href: "/#contact", isAnchor: true },
   ];
 
   return (
