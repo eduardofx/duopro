@@ -20,7 +20,7 @@ const ServiceAreas = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="section-dark pt-32 pb-16 px-6">
+      <section className="section-dark pt-32 pb-8 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <span className="badge-label">Where We Work</span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-3 text-section-dark-foreground">
@@ -34,13 +34,13 @@ const ServiceAreas = () => {
 
       {/* Wave */}
       <div className="bg-background">
-        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" className="w-full h-[40px] md:h-[60px] block -mt-px">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none" className="w-full h-[30px] md:h-[40px] block -mt-px">
           <path d="M0,0 C360,60 720,-20 1080,30 C1260,45 1380,40 1440,30 L1440,60 L0,60 Z" fill="hsl(var(--background))" />
         </svg>
       </div>
 
       {/* Map */}
-      <section className="section-padding bg-background">
+      <section className="py-4 md:py-6 px-6 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold">Westchester County, NY</h2>
