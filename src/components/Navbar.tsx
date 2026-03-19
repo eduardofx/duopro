@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "@/assets/duopro-logo.png";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -14,8 +16,43 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    // Handle hash scrolling after navigation
+    if (location.hash) {
+      setTimeout(() => {
+        const element = document.getElementById(location.hash.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      // No hash, scroll to top
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
+  const handleNavClick = (e: React.MouseEvent, href: string) => {
+    if (href.startsWith("/#")) {
+      e.preventDefault();
+      const hash = href.substring(2); // Remove "/#"
+      
+      if (location.pathname === "/") {
+        // Already on home page, just scroll
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        // Navigate to home with hash
+        navigate(`/#${hash}`);
+      }
+    }
+    setMobileOpen(false);
+  };
+
   const links = [
     { label: "Home", href: "/" },
+    { label: "Services", href: "/#services" },
     { label: "Gallery", href: "/gallery" },
     { label: "Service Areas", href: "/service-areas" },
   ];
@@ -32,6 +69,7 @@ const Navbar = () => {
             <Link
               key={l.label}
               to={l.href}
+              onClick={(e) => handleNavClick(e, l.href)}
               className={`text-sm font-medium transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full ${scrolled ? "text-foreground/80 hover:text-foreground" : "text-primary-foreground/80 hover:text-primary-foreground"}`}
             >
               {l.label}
@@ -67,8 +105,8 @@ const Navbar = () => {
             <Link
               key={l.label}
               to={l.href}
+              onClick={(e) => handleNavClick(e, l.href)}
               className="block text-sm font-medium text-secondary-foreground/80 hover:text-secondary-foreground"
-              onClick={() => setMobileOpen(false)}
             >
               {l.label}
             </Link>
