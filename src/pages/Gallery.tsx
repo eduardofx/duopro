@@ -4,20 +4,36 @@ import { X } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+// Import images
+import cabinetImg1 from "@/assets/cabinet/IMG_3250.jpg";
+import cabinetImg2 from "@/assets/cabinet/IMG_3262.jpg";
+import cabinetImg3 from "@/assets/cabinet/IMG_3264.jpg";
+import cabinetImg4 from "@/assets/cabinet/IMG_3412.jpg";
+import cabinetImg5 from "@/assets/cabinet/IMG_3413.jpg";
+import cabinetImg6 from "@/assets/cabinet/IMG_3434.jpg";
+import cabinetImg7 from "@/assets/cabinet/IMG_3495.jpg";
+
+import externalImg1 from "@/assets/external_walls/IMG_0130.jpg";
+import externalImg2 from "@/assets/external_walls/IMG_0149.jpg";
+import externalImg3 from "@/assets/external_walls/IMG_0776.jpg";
+import externalImg4 from "@/assets/external_walls/IMG_8039.jpg";
+import externalImg5 from "@/assets/external_walls/IMG_8040.jpg";
+
+import internalImg1 from "@/assets/Internal/IMG_1754.jpg";
+import internalImg2 from "@/assets/Internal/IMG_3496.jpg";
+import internalImg3 from "@/assets/Internal/IMG_3497.jpg";
+import internalImg4 from "@/assets/Internal/IMG_3531.jpg";
+import internalImg5 from "@/assets/Internal/IMG_3532.jpg";
+import internalImg6 from "@/assets/Internal/IMG_3536.jpg";
+import internalImg7 from "@/assets/Internal/IMG_3576.jpg";
+import internalImg8 from "@/assets/Internal/IMG_4467.jpg";
+import internalImg9 from "@/assets/Internal/IMG_5474.jpg";
+
 const categories = [
   "All",
-  "Exterior Walls",
-  "Deck",
-  "Living Room",
-  "Dining Room",
-  "Kitchen",
-  "Bathroom",
-  "Bedroom",
-  "Home Office",
-  "Hallway",
-  "Staircase",
-  "Basement",
-  "Laundry Room",
+  "Cabinet",
+  "External Walls",
+  "Internal",
 ] as const;
 
 type Category = (typeof categories)[number];
@@ -29,24 +45,32 @@ interface GalleryItem {
 }
 
 const galleryItems: GalleryItem[] = [
-  { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", alt: "Exterior wall painting", category: "Exterior Walls" },
-  { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", alt: "Exterior house painting", category: "Exterior Walls" },
-  { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80", alt: "Beautiful deck refinishing", category: "Deck" },
-  { src: "https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=800&q=80", alt: "Deck staining project", category: "Deck" },
-  { src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80", alt: "Modern living room painting", category: "Living Room" },
-  { src: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80", alt: "Living room refresh", category: "Living Room" },
-  { src: "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800&q=80", alt: "Elegant dining room", category: "Dining Room" },
-  { src: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=800&q=80", alt: "Kitchen cabinet refinishing", category: "Kitchen" },
-  { src: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80", alt: "Kitchen makeover", category: "Kitchen" },
-  { src: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80", alt: "Bathroom painting", category: "Bathroom" },
-  { src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80", alt: "Bathroom refresh", category: "Bathroom" },
-  { src: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80", alt: "Bedroom painting", category: "Bedroom" },
-  { src: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80", alt: "Cozy bedroom", category: "Bedroom" },
-  { src: "https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=800&q=80", alt: "Home office painting", category: "Home Office" },
-  { src: "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=800&q=80", alt: "Hallway painting", category: "Hallway" },
-  { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", alt: "Staircase refinishing", category: "Staircase" },
-  { src: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80", alt: "Basement renovation", category: "Basement" },
-  { src: "https://images.unsplash.com/photo-1626863905121-3b0c0ed7b94c?w=800&q=80", alt: "Laundry room painting", category: "Laundry Room" },
+  // Cabinet
+  { src: cabinetImg1, alt: "Cabinet painting project", category: "Cabinet" },
+  { src: cabinetImg2, alt: "Cabinet refinishing", category: "Cabinet" },
+  { src: cabinetImg3, alt: "Cabinet transformation", category: "Cabinet" },
+  { src: cabinetImg4, alt: "Cabinet painting work", category: "Cabinet" },
+  { src: cabinetImg5, alt: "Cabinet restoration", category: "Cabinet" },
+  { src: cabinetImg6, alt: "Cabinet refinishing project", category: "Cabinet" },
+  { src: cabinetImg7, alt: "Cabinet painting service", category: "Cabinet" },
+  
+  // External Walls
+  { src: externalImg1, alt: "External wall painting", category: "External Walls" },
+  { src: externalImg2, alt: "Exterior wall project", category: "External Walls" },
+  { src: externalImg3, alt: "External wall refinishing", category: "External Walls" },
+  { src: externalImg4, alt: "Exterior painting work", category: "External Walls" },
+  { src: externalImg5, alt: "External wall transformation", category: "External Walls" },
+  
+  // Internal
+  { src: internalImg1, alt: "Interior painting project", category: "Internal" },
+  { src: internalImg2, alt: "Internal wall painting", category: "Internal" },
+  { src: internalImg3, alt: "Interior refinishing", category: "Internal" },
+  { src: internalImg4, alt: "Internal painting work", category: "Internal" },
+  { src: internalImg5, alt: "Interior transformation", category: "Internal" },
+  { src: internalImg6, alt: "Internal wall project", category: "Internal" },
+  { src: internalImg7, alt: "Interior painting service", category: "Internal" },
+  { src: internalImg8, alt: "Internal refinishing work", category: "Internal" },
+  { src: internalImg9, alt: "Interior painting project", category: "Internal" },
 ];
 
 const Gallery = () => {
@@ -109,14 +133,14 @@ const Gallery = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3, delay: i * 0.03 }}
-                  className="group relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer"
+                  className="group relative aspect-[4/3] rounded-xl overflow-hidden cursor-pointer bg-muted"
                   onClick={() => setSelectedImage(item)}
                 >
                   <img
                     src={item.src}
                     alt={item.alt}
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-colors duration-300 flex items-end">
                     <div className="p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
@@ -157,7 +181,7 @@ const Gallery = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              src={selectedImage.src.replace("w=800", "w=1600")}
+              src={selectedImage.src}
               alt={selectedImage.alt}
               className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
               onClick={(e) => e.stopPropagation()}
